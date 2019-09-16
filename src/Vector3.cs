@@ -47,5 +47,27 @@ namespace VectorMath
             this.Y = y;
             this.Z = z;
         }
+        /// <summary>
+        /// Gets the magnitude of this vector
+        /// </summary>
+        public Double Magnitude
+        {
+            get
+            {
+               return Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
+            }
+        }
+        /// <summary>
+        /// returns a vector perpendicular to two vectors (maybe).
+        /// </summary>
+        /// <param name="other"> vector to be crossed </param>
+        /// <returns> the cross product </returns>
+        public Vector3 CrossProduct(Vector3 other)
+        {
+            double i_hat = this.Y * other.Z - this.Z * other.Y;
+            double j_hat = -(this.X * other.Z - this.Z - other.X);
+            double k_hat = this.X * other.Y - this.Y * other.X;
+            return new Vector3(i_hat, j_hat, k_hat);
+        }
     }
 }
